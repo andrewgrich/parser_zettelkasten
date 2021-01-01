@@ -1,0 +1,46 @@
+[
+	{
+		"id": "http://zotero.org/users/local/rFDivyGk/items/EPZABIGK",
+		"type": "article-newspaper",
+		"abstract": "For years, Republicans have used the specter of cheating as a reason to impose barriers to ballot access. A definitive debunking of claims of wrongdoing in 2020 has not changed that message.",
+		"container-title": "The New York Times",
+		"ISSN": "0362-4331",
+		"language": "en-US",
+		"section": "U.S.",
+		"source": "NYTimes.com",
+		"title": "Trump’s Fraud Claims Died in Court, But the Myth of Stolen Elections Lives On",
+		"URL": "https://www.nytimes.com/2020/12/26/us/politics/republicans-voter-fraud.html",
+		"author": [
+			{
+				"family": "Rutenberg",
+				"given": "Jim"
+			},
+			{
+				"family": "Corasaniti",
+				"given": "Nick"
+			},
+			{
+				"family": "Feuer",
+				"given": "Alan"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					12,
+					26
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					12,
+					26
+				]
+			]
+		}
+	}
+]
