@@ -26,7 +26,7 @@ def get_filename():
     return re.sub("’","",temp_filename)
 
 filename = get_filename()
-filename = "-'\/-+-"
+filename = "????"
 print(title)
 print(filename)
 
@@ -42,7 +42,11 @@ while True:
         with open('%s.md' % filename, 'w') as file:
             file.write("test")
         break
-    except FileNotFoundError:
-
+    except (FileNotFoundError, OSError):
+        print("OS Error or File Not Found Error")
+        filename = time.strftime("%Y%m%d", time.gmtime()) + "_" + str(authors[1][1:-1])
+        with open('%s.md' % filename, 'w') as file:
+            file.write("new name test")
         break
 
+print(filename)
