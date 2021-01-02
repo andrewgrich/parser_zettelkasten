@@ -3,7 +3,14 @@
 import json
 import re
 import time
+import sys
 
+json_file = sys.argv[1]
+
+print(json_file)
+with open(json_file) as f:
+    new_data = json.load(f)
+    print(new_data)
 with open('article.json') as f:
     data = json.load(f)
 
