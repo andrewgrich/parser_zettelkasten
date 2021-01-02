@@ -26,22 +26,28 @@ def get_filename():
     return re.sub("’","",temp_filename)
 
 filename = get_filename()
-filename = "????"
 print(title)
 print(filename)
 
 for i in authors:
     print(i)
 
-print("[" + source + "]")
+print()
 print(url)
 print(formated_date)
+
 
 while True:
     try:
         with open('%s.md' % filename, 'w') as file:
-            file.write("test")
+            file.write(title + "\n")
+            file.write(str(authors) + "\n")
+            file.write(url + "\n")
+            file.write(formated_date + "\n")
+            file.write("[" + source + "]" + "\n")
+            file.write("new test")
         break
+
     except (FileNotFoundError, OSError):
         print("OS Error or File Not Found Error")
         filename = time.strftime("%Y%m%d", time.gmtime()) + "_" + str(authors[1][1:-1])
@@ -49,4 +55,12 @@ while True:
             file.write("new name test")
         break
 
-print(filename)
+
+# def write_to_file():
+#     with open('%s.md' % filename, 'w') as file:
+#             file.write(title)
+#             file.write(authors)
+#             file.write(url)
+#             file.write(formated_date)
+#             file.write("[" + source + "]")
+#             file.write("new test")
