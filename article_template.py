@@ -5,6 +5,8 @@ import re
 import time
 import sys
 
+## Takes one argument (json file) and converts JSON data into usable data object
+## Needs Help menue for sys argv and exectpion if no argument is made
 json_file = sys.argv[1]
 
 print(json_file)
@@ -14,6 +16,7 @@ with open(json_file) as f:
 with open('article.json') as f:
     data = json.load(f)
 
+## Parse Values from JSON file into Variables
 title = data[0]['title']
 authors = []
 
@@ -28,40 +31,29 @@ date = data[0]['issued']['date-parts'][0]
 
 formated_date = str(date[1]) + " " + str(date[2]) + " " + str(date[0])
 
+## Funtion thats returns file name
+## Need to removea all values that are not ASCII or valid values for a filename
 def get_filename():
     temp_filename = title.replace(",", "")
     return re.sub("’","",temp_filename)
 
 filename = get_filename()
-print(title)
-print(filename)
 
-for i in authors:
-    print(i)
-
-print()
-print(url)
-print(formated_date)
-
-
+## Wries to File
 while True:
     try:
         with open('%s.md' % filename, 'w') as file:
             file.write(title + "\n")
-            file.write(str(authors) + "\n")
+            for i in authors:
+                file.write(str(i) + "\n")
             file.write(url + "\n")
             file.write(formated_date + "\n")
             file.write("[" + source + "]" + "\n")
             file.write("new test")
-        break
-
     except (FileNotFoundError, OSError):
         print("OS Error or File Not Found Error")
         filename = time.strftime("%Y%m%d", time.gmtime()) + "_" + str(authors[1][1:-1])
-        with open('%s.md' % filename, 'w') as file:
-            file.write("new name test")
-        break
-
+        continue
 
 # def write_to_file():
 #     with open('%s.md' % filename, 'w') as file:
